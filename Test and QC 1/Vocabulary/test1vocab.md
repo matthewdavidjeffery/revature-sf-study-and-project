@@ -50,6 +50,15 @@ Margin > Border > Padding > Content (Outermost to innermost)
 - Null
 - Symbol
 
+## Event Model
+- Bubbling : Events travel down the DOM to the root element
+- Capturing : Occurs before bubbling, traverses from the root element down to the target element
+- Event phases: Capturing, Target Reached, Bubbling
+- Capturing must be enabled to occur:
+```
+elem.addEventListener(..., {capture: true})
+```
+
 ## ES Modules
  - JavaScript file that explicitly exports variables or functions that other modules can import and use.
  - For LWC, .html and .js are required to provide the display and code behind for the module to function.
@@ -87,3 +96,36 @@ export default class Example extends LightningElement {}
 - Marketing Cloud
 - Service Cloud
 - Sales Cloud
+
+# Lightning Web Components OSS
+
+## Defintions
+- Reactive: The framework observes changes to the values of fields and properties. When it observes a change, it reacts. It reevaluates all the expressions used in the template and rerenders the component, which displays the new values.
+
+## Starting an LWC-OSS project
+- [LWC-OSS Site]("http://lwc.dev")
+```
+npx create-lwc-app project-name
+cd project-name
+npm run watch
+```
+## Module Structure
+- Folder in namespace
+- HTML file with same name as folder
+- JS file with same name as folder
+- Optional CSS file with same name as folder
+- HTML file minimally structured:
+```
+<template>
+<!-- Template Code Here -->
+</template>
+```
+- JS File minimally structured:
+```
+import {LightningElement} from 'lwc';
+
+export default class myElement extends LightningElement {
+	// Element code here
+}
+```
+
